@@ -33,7 +33,7 @@ if(isset($text2[1])) {
 
 switch(strtolower($command)) {
     case "start":
-        sendMessage($chat_id, 'Hello! Welcome to the Robin finance bot. Use "/add amount name" to add items.');
+        sendMessage($chat_id, 'Hello! Welcome to the finance bot. Use "/add amount name" to add items.');
         break;
     case "add":
         addItem($content);
