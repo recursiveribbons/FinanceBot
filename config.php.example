@@ -1,0 +1,4 @@
+<?php
+define('BOT_TOKEN', '628318530:l0rEm1pSuMd0l0rs1taMet');
+define('TG_USER_ID', 314159265);
+define('TG_BOT_NAME', '@HamFinanceBot');
