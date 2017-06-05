@@ -125,5 +125,5 @@ function toTWD($euro) {
 }
 
 function sendID($chat_id) {
-    sendMessage($chat_id, '$chat_id');
+    sendMessage($chat_id, "Your user ID is $chat_id");
 }

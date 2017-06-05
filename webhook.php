@@ -25,7 +25,7 @@ $command = strtolower(str_replace("/","",$text2[0]));
 if(isset($text2[1])) {
     $content = $text2[1];
 }
-if ($chat_id != TG_USER_ID && $command != "userid") {
+if ($command != "userid" && $chat_id != TG_USER_ID) {
     sendMessage($chat_id, "You do not have permission to use this bot");
     exit;
 }
