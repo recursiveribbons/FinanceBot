@@ -1,0 +1,4 @@
+add - Add new spending
+remove - Remove previous spending
+status - Returns total spending in current month
+list - List all spending in the current month
