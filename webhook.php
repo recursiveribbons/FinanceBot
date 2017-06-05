@@ -4,7 +4,6 @@ $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
 if (!$update) {
-// receive wrong update, must not happen
     exit;
 }
 if (!isset($update["message"])) {
@@ -19,19 +18,19 @@ $chat_type = $message['chat']['type'];
 if (!isset($message['text'])) {
     exit;
 }
-if ($chat_id != TG_USER_ID) {
-    sendMessage($chat_id, "No");
-    exit;
-}
 
 $text = str_ireplace(TG_BOT_NAME,"",$message['text']);
 $text2 = explode(" ", $text, 2);
-$command = str_replace("/","",$text2[0]);
+$command = strtolower(str_replace("/","",$text2[0]));
 if(isset($text2[1])) {
     $content = $text2[1];
 }
+if ($chat_id != TG_USER_ID && $command != "userid") {
+    sendMessage($chat_id, "You do not have permission to use this bot");
+    exit;
+}
 
-switch(strtolower($command)) {
+switch($command) {
     case "start":
         sendMessage($chat_id, 'Hello! Welcome to the finance bot. Use "/add amount name" to add items.');
         break;
@@ -46,6 +45,9 @@ switch(strtolower($command)) {
         break;
     case "list":
         listSpending();
+        break;
+    case "userid":
+        sendID($chat_id);
         break;
     case "euro":
         toEuro(floatval($content));

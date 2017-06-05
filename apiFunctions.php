@@ -123,3 +123,7 @@ function toEuro($twd) {
 function toTWD($euro) {
     sendMessage(TG_USER_ID, '$'.sprintf('%.2f', $euro*36));
 }
+
+function sendID($chat_id) {
+    sendMessage($chat_id, '$chat_id');
+}
