@@ -88,7 +88,7 @@ function listSpending() {
     foreach ($array as $row) {
         $time = intval($row[0]);
         if($timestamp <= $time) {
-            $time_text = date('d H:i');
+            $time_text = date('d H:i', $time);
             $amount = sprintf('%.2f', floatval($row[1]));
             $name = $row[2];
             $message .= "$time_text €$amount $name\n";
